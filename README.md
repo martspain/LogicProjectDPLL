@@ -1,0 +1,2 @@
+# LogicProjectDPLL
+DPLL Algorithm
