@@ -24,10 +24,10 @@ Make sure you run **formulaReader.py**.
 
 If you choose **Option 1: Brute Force Algorithm**, make sure you enter the formula using this syntax:
 
-   `< [{(p, False), (q, False)}, {(p, True), (r, True)}] >`
+   `[{(p, False), (q, False)}, {(p, True), (r, True)}]`
 
 Else if you choose **Option 2: DPLL's Algorithm**, make sure you enter what you want to test in the **example.txt** file using the following syntax:
 
-   `< !p !r s !q p !s >`
+   `!p !r s !q p !s`
 
 ## 6. Enjoy the Math :)
