@@ -16,6 +16,7 @@ unit_propa = 0
 splitting = -1
 
 def remove_liter(cnf):
+    #remove items
     new_liters = list(set(''.join(cnf)))
     if '!' in new_liters:
         new_liters.remove('!')
@@ -27,6 +28,7 @@ def remove_liter(cnf):
 
 
 def preproc(input_cnf):
+    #handle back he literals
     liters = list(set(input_cnf))
     if '!' in liters:
         liters.remove('!')
@@ -34,7 +36,6 @@ def preproc(input_cnf):
         liters.remove('\n')
     if ' ' in liters:
         liters.remove(' ')
-    # liters = dict(zip(liters, [False] * len(liters)))
     liters = list(liters)
     input_cnf = input_cnf.splitlines()
 
@@ -46,7 +47,6 @@ def dpll(cnf, liters):
 
     splitting += 1
 
-    # ------------start unit propa-----------------
     while True:
         if len(liters) == 1 and len(cnf) > 1:
             print('--------------------------------------------------')
@@ -148,7 +148,7 @@ def main():
             truth_assignment.remove('')
 
         #show truth clauses
-        print('[Truth Assignment] | ', end='')
+        print('[Clausula] | ', end='')
         for i in truth_assignment:
             if '!' in i:
                 print(i.replace('!', ''), ' : False', end=' | ')
