@@ -1,1 +1,1 @@
-!p !r !s !q !p !s
+r !q !r !p q !r  q

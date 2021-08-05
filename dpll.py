@@ -3,19 +3,11 @@
 import sys
 from copy import deepcopy
 
-#ejemplos de la guía
-# p !p
-# q p !p
-# !p !r !s !q !p !s
-# !p !q q !s !p s !q s
-# !p !q !r q !r p !p q r
-# r !q !r !p q !r  q
-
 truth_assignment = []
 unit_propa = 0
 splitting = -1
 
-def remove_liter(cnf):
+def removeLiteral(cnf):
     #remove items
     new_liters = list(set(''.join(cnf)))
     if '!' in new_liters:
@@ -89,7 +81,7 @@ def dpll(cnf, liters):
 
             for index in sorted(delete_list, reverse=True):
                 del cnf[index]
-            liters = remove_liter(cnf)
+            liters = removeLiteral(cnf)
 
         elif unit_clause and '!' in unit_clause:
             unit_propa += 1
@@ -105,7 +97,7 @@ def dpll(cnf, liters):
 
             for index in sorted(delete_list, reverse=True):
                 del cnf[index]
-            liters = remove_liter(cnf)
+            liters = removeLiteral(cnf)
 
         else:
             break

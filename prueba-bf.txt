@@ -1,0 +1,7 @@
+[{(p, true), (p, false)}]
+[{(q, true), (p, true), (q, false)}]
+[{(p, false), (r, false), (s, false)}, {(q, false), (p, false), (s, false)}]
+[{(p, false), (q, false)}, {(q, true), (s, false)}, {(p, false), (s, true)}, {(q, false), (s, true)}]
+[{(p, false), (q, false), (r, false)}, {(q, true), (r, false), (p, true)}, {(p, false), (q, true), (r, true)}]
+[(r, true), (q, false), (r, false), (p, false), (q, true), (r, false), (q, true)]
+
