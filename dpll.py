@@ -4,7 +4,7 @@ import sys
 from copy import deepcopy
 
 truth_assignment = []
-unit_propa = 0
+unit_newCNF = 0
 splitting = -1
 
 def removeLiteral(cnf):
@@ -19,7 +19,7 @@ def removeLiteral(cnf):
     return new_liters
 
 
-def preproc(input_cnf):
+def newCNF(input_cnf):
     #handle back he literals
     liters = list(set(input_cnf))
     if '!' in liters:
@@ -28,6 +28,10 @@ def preproc(input_cnf):
         liters.remove('\n')
     if ' ' in liters:
         liters.remove(' ')
+    if '(' in liters:
+        liters.remove('(')
+    if ')' in liters:
+        liters.remove(')')
     liters = list(liters)
     input_cnf = input_cnf.splitlines()
 
@@ -35,7 +39,7 @@ def preproc(input_cnf):
 
 
 def dpll(cnf, liters):
-    global truth_assignment, unit_propa, splitting
+    global truth_assignment, unit_newCNF, splitting
 
     splitting += 1
 
@@ -68,7 +72,7 @@ def dpll(cnf, liters):
                         return False
 
         if unit_clause and '!' not in unit_clause:
-            unit_propa += 1
+            unit_newCNF += 1
             for j in range(len(cnf)):
                 if '!' + unit_clause in cnf[j]:
                     if '!' + unit_clause == cnf[j]:
@@ -84,7 +88,7 @@ def dpll(cnf, liters):
             liters = removeLiteral(cnf)
 
         elif unit_clause and '!' in unit_clause:
-            unit_propa += 1
+            unit_newCNF += 1
             for j in range(len(cnf)):
                 if unit_clause in cnf[j]:
                     delete_list.append(j)
@@ -118,7 +122,7 @@ def dpll(cnf, liters):
 def main():
     global truth_assignment
     input_cnf = open("example.txt", 'r').read()
-    liters, cnf = preproc(input_cnf)
+    liters, cnf = newCNF(input_cnf)
 
     if dpll(cnf, liters):
         print('--------------------------------------------------')
