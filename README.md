@@ -27,6 +27,7 @@ If you choose **Option 1: Brute Force Algorithm**, make sure you enter the formu
    `[{(p, False), (q, False)}, {(p, True), (r, True)}]`
 
 Else if you choose **Option 2: DPLL's Algorithm**, make sure you enter what you want to test in the **example.txt** file using the following syntax:
+(Avoid using parentheses, instead use enters :) )
 
    `!p !r s !q p !s`
 
